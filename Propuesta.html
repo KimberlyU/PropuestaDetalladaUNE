@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Complementaria — INSITU × Red Educativa UNE</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal-dark:   #045364;
+  --teal-mid:    #229999;
+  --teal-light:  #41BB95;
+  --teal-pale:   #E8F7F4;
+  --yellow:      #E8E87C;
+  --yellow-pale: #F8F8E0;
+  --ink:         #1A1A18;
+  --muted:       #5A5A54;
+  --border:      #E2E0DA;
+  --white:       #FFFFFF;
+  --offwhite:    #F7F6F2;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── COVER ─────────────────────────────────────────── */
+.cover {
+  background: var(--teal-dark);
+  color: var(--white);
+  padding: 64px 64px 56px;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Three circles motif top-right */
+.cover-circles {
+  position: absolute;
+  top: 32px; right: 48px;
+  display: flex; gap: 14px;
+  opacity: 0.18;
+}
+.cover-circles span {
+  display: block;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+.cover-circles span:nth-child(1) { width: 100px; height: 100px; }
+.cover-circles span:nth-child(2) { width: 76px; height: 76px; margin-top: 24px; }
+.cover-circles span:nth-child(3) { width: 54px; height: 54px; margin-top: 46px; }
+
+.cover-logo {
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.cover-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 28px;
+}
+
+.cover h1 {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  max-width: 640px;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+.cover h1 em {
+  font-style: normal;
+  color: var(--yellow);
+}
+
+.cover-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.cover-chips {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.cover-chip {
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+}
+.cover-chip.act {
+  background: var(--teal-light);
+  border-color: var(--teal-light);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ── CONTEXT STRIP ─────────────────────────────────── */
+.context-strip {
+  background: var(--yellow);
+  padding: 24px 64px;
+}
+.context-strip p {
+  font-size: 13px;
+  color: var(--ink);
+  max-width: 900px;
+  line-height: 1.65;
+}
+.context-strip strong { font-weight: 700; }
+
+/* ── LAYOUT ─────────────────────────────────────────── */
+.body-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+.section { padding-top: 64px; }
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.section-lead {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.rule { height: 1px; background: var(--border); margin: 56px 0 0; }
+
+/* ── CRONOGRAMA ─────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 8px;
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-period {
+  padding: 16px 18px 16px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  border-right: 2px solid var(--teal-light);
+  display: flex;
+  align-items: flex-start;
+  padding-right: 20px;
+}
+.tl-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+.tl-content h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.tl-content p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.tl-tags {
+  padding: 16px 0 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+}
+.tl-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  white-space: nowrap;
+}
+
+/* ── COMPONENT CARDS ────────────────────────────────── */
+.components-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.comp-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.comp-header {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  background: var(--teal-dark);
+  color: var(--white);
+  padding: 24px 28px;
+  gap: 20px;
+  align-items: center;
+}
+.comp-header.yellow { background: var(--yellow); }
+.comp-header.yellow .comp-num,
+.comp-header.yellow h3,
+.comp-header.yellow .comp-subtitle { color: var(--ink); }
+
+.comp-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.25);
+  line-height: 1;
+}
+.comp-header.yellow .comp-num { color: rgba(0,0,0,0.2); }
+
+.comp-header h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 3px;
+  letter-spacing: -0.2px;
+}
+.comp-subtitle {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+}
+
+.comp-objective {
+  background: var(--teal-pale);
+  padding: 16px 28px;
+  font-size: 13px;
+  color: var(--teal-dark);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.comp-body {
+  padding: 24px 28px;
+}
+
+/* Fases table inside comp */
+.phases-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.phases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.phase-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.phase-row:last-child { border-bottom: none; }
+
+.phase-label-col {
+  padding: 14px 16px;
+  background: var(--offwhite);
+  border-right: 1px solid var(--border);
+}
+.phase-label-col strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 2px;
+}
+.phase-label-col span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.phase-content-col {
+  padding: 14px 16px;
+}
+.phase-content-col p {
+  font-size: 12.5px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.phase-deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+.phase-del {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 4px;
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* KPIs & lower sections */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.info-box {
+  background: var(--offwhite);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.info-box h5 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal-mid);
+  margin-bottom: 10px;
+}
+.info-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.info-box ul li {
+  font-size: 12.5px;
+  color: var(--ink);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+.info-box ul li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal-light);
+  margin-top: 5px;
+}
+
+/* ── KPI TABLE ──────────────────────────────────────── */
+.kpi-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 12.5px;
+  margin-top: 28px;
+}
+.kpi-table thead tr {
+  background: var(--teal-dark);
+  color: var(--white);
+}
+.kpi-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.kpi-table tbody tr:nth-child(even) { background: var(--offwhite); }
+.kpi-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.kpi-table tbody tr:last-child td { border-bottom: none; }
+.kpi-table .comp-name {
+  font-weight: 700;
+  color: var(--teal-dark);
+  white-space: nowrap;
+}
+
+/* ── RESULTS SECTION ────────────────────────────────── */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+.result-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.result-card.teal {
+  background: var(--teal-pale);
+  border-color: var(--teal-light);
+}
+.result-card h5 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal-dark);
+  margin-bottom: 12px;
+}
+.result-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.result-card ul li {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.result-card ul li::before {
+  content: '→';
+  color: var(--teal-mid);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+.footer {
+  background: var(--teal-dark);
+  color: var(--white);
+  padding: 40px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.footer-logo {
+  line-height: 1;
+}
+.footer-contact {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-align: right;
+  line-height: 1.8;
+}
+.footer-contact strong { color: var(--white); }
+
+@media print {
+  .cover { min-height: auto; }
+  .comp-card { break-inside: avoid; }
+}
+
+@media (max-width: 700px) {
+  .cover, .context-strip, .footer { padding-left: 24px; padding-right: 24px; }
+  .body-wrap { padding: 0 20px 60px; }
+  .cover h1 { font-size: 26px; }
+  .two-col, .results-grid { grid-template-columns: 1fr; }
+  .comp-header { grid-template-columns: 48px 1fr; }
+  .phase-row { grid-template-columns: 1fr; }
+  .phase-label-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .tl-item { grid-template-columns: 1fr; }
+  .tl-period { border-right: none; border-bottom: 2px solid var(--teal-light); padding-right: 0; }
+  .tl-tags { flex-direction: row; flex-wrap: wrap; padding: 8px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="cover-logo"><img src="data:image/png;base64,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" alt=":Insitu" style="height:40px; filter: brightness(0) invert(1);"></div>
+  <div class="cover-tag">Education + Social Lab &nbsp;·&nbsp; Propuesta Complementaria</div>
+  <h1>Una ruta de <em>transformación</em><br>para la Red Educativa UNE</h1>
+  <p class="cover-sub">Respuesta detallada a la retroalimentación del Director Comercial: entregables, cronograma, KPIs, metodología y acompañamiento para cada componente.</p>
+  <div class="cover-chips">
+    <span class="cover-chip act">5 componentes</span>
+    <span class="cover-chip">12 meses de implementación</span>
+    <span class="cover-chip">Resultados visibles desde la semana 6</span>
+    <span class="cover-chip">Transferencia total del modelo a UNE</span>
+  </div>
+</div>
+
+<!-- ═══ CONTEXT ══════════════════════════════════════ -->
+<div class="context-strip">
+  <p>Esta propuesta complementaria responde punto a punto a la retroalimentación del cliente: <strong>entregables específicos, cronograma con tiempos y responsables, indicadores de éxito, metodología de implementación, integración con procesos actuales y alcance del acompañamiento.</strong> Cada componente se detalla a continuación como base para la propuesta económica, sin embargo siguen en proceso de diseño y en espera de retroalimentación por parte del cliente. <strong>Es importante revisar sobre todo los indicadores de éxito y la integración con el cliente previo a una cotización y diseño formal de la estrategia.</strong></p>
+</div>
+
+<div class="body-wrap">
+
+<!-- ═══ CRONOGRAMA ════════════════════════════════════ -->
+<div class="section">
+  <div class="eyebrow">Vista general</div>
+  <div class="section-title">Cronograma de trabajo — 12 meses</div>
+  <p class="section-lead">Cada periodo tiene hitos concretos y componentes activos. Los primeros resultados tangibles aparecen en las semanas 3–6.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">Semanas 1–2</div>
+      <div class="tl-content">
+        <h4>Arranque del proyecto</h4>
+        <p>Plan de acompañamiento, calendario de seguimiento y recopilación de información institucional.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">5.1 Acompañamiento</span>
+        <span class="tl-tag">1.1 Sello UNE</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Semanas 3–6</div>
+      <div class="tl-content">
+        <h4>⚡ Primer resultado tangible</h4>
+        <p>Documento "Sello UNE: Identidad y Propuesta de Valor" aprobado + presentación ejecutiva lista.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">1.2 Sesión estratégica</span>
+        <span class="tl-tag">1.3 Consolidación</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Semanas 6–8</div>
+      <div class="tl-content">
+        <h4>Estrategia de integración + diagnóstico de liderazgo</h4>
+        <p>Estrategia de integración del Sello UNE por áreas, diagnóstico de habilidades directivas e inicio del diseño del modelo de mapeo docente.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">1.4 Integración</span>
+        <span class="tl-tag">2.1 Liderazgo</span>
+        <span class="tl-tag">4.1 Mapeo</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Semanas 9–12</div>
+      <div class="tl-content">
+        <h4>⚡ Segundo resultado tangible</h4>
+        <p>Arranque del módulo 1 del Programa de Liderazgo Directivo, diseño de la ruta de Formación Docente y mapeo de expertise en campo.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">2.2 Liderazgo</span>
+        <span class="tl-tag">3.1 Formación</span>
+        <span class="tl-tag">4.2 Mapeo</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Meses 4–6</div>
+      <div class="tl-content">
+        <h4>Lanzamiento de Formación Docente + primeros formadores internos</h4>
+        <p>Primer trimestre de formación docente, ruta de inducción de 90 días para nuevos ingresos y formación de los primeros formadores internos.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">3.2 Formación</span>
+        <span class="tl-tag">3.3 Inducción</span>
+        <span class="tl-tag">4.3 Formadores</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Meses 6–12</div>
+      <div class="tl-content">
+        <h4>Operación, seguimiento y ajuste de medio término</h4>
+        <p>Operación de programas, seguimiento trimestral, evaluación de medio término y ajustes estratégicos.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">2, 3, 4.4</span>
+        <span class="tl-tag">5.2, 5.3</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Mes 12+</div>
+      <div class="tl-content">
+        <h4>Cierre y transferencia formal del modelo</h4>
+        <p>Evaluación anual, cierre del primer ciclo y transferencia formal del modelo a los equipos de UNE.</p>
+      </div>
+      <div class="tl-tags">
+        <span class="tl-tag">5.4 Transferencia</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rule"></div>
+
+<!-- ═══ COMPONENTE 1 ══════════════════════════════════ -->
+<div class="section">
+  <div class="eyebrow">Componente 1 de 5</div>
+  <div class="components-grid">
+
+    <div class="comp-card">
+      <div class="comp-header">
+        <div class="comp-num">01</div>
+        <div>
+          <h3>Construcción del "Sello UNE"</h3>
+          <div class="comp-subtitle">Sesión inicial de definición estratégica · Semanas 1–8</div>
+        </div>
+      </div>
+      <div class="comp-objective">
+        Definir una identidad institucional unificada que cohesione todos los niveles educativos y planteles de la Red, estableciendo la propuesta de valor diferenciada y los principios no negociables del "Sello UNE".
+      </div>
+      <div class="comp-body">
+        <div class="phases-label">Fases y entregables</div>
+        <div class="phases-list">
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>1.1 Preparación</strong>
+              <span>1 semana</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Recopilación de información institucional, entrevistas con actores clave y contextualización de INSITU.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Documento de análisis previo</span>
+                <span class="phase-del">Agenda detallada de sesión</span>
+                <span class="phase-del">Perfiles clave identificados</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>1.2 Sesión estratégica</strong>
+              <span>6h taller + 1 semana</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Taller intensivo con directivos y líderes clave para co-crear la propuesta de valor, el "Sello UNE" y la segmentación de trabajo por nivel.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Borrador propuesta de valor</span>
+                <span class="phase-del">Borradores pilares del Sello</span>
+                <span class="phase-del">Definición de segmentos</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>1.3 Consolidación</strong>
+              <span>2h retroalimentación + 1 semana diseño</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Retroalimentación de borradores y refinamiento en documento formal.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Documento final "Sello UNE: Identidad y Propuesta de Valor"</span>
+                <span class="phase-del">Presentación ejecutiva</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>1.4 Integración</strong>
+              <span>2h sesión + acompañamiento pactado</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Diseño de estrategia para bajar el Sello UNE a diferentes áreas de la institución.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Documento de acciones estratégicas por área</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="info-box">
+            <h5>Indicadores de éxito</h5>
+            <ul>
+              <li>Más del 90% de asistencia directiva en la sesión</li>
+              <li>Más del 85% de claridad reportada sobre identidad institucional</li>
+              <li>Documento "Sello UNE" aprobado formalmente</li>
+              <li>Más del 80% de satisfacción de participantes</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h5>Metodología + integración</h5>
+            <ul>
+              <li>Pensamiento de diseño + Value Proposition Canvas adaptado al contexto educativo por INSITU</li>
+              <li>Se integra con: misión/visión existente, Plan Estratégico actual, procesos de comunicación y contratación</li>
+              <li>El documento rector alimenta todos los demás componentes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ═══ COMPONENTE 2 ══════════════════════════════════ -->
+    <div class="comp-card">
+      <div class="comp-header">
+        <div class="comp-num">02</div>
+        <div>
+          <h3>Programa de Liderazgo Directivo</h3>
+          <div class="comp-subtitle">Para directores actuales y futura expansión · Semanas 6–12 y continuo</div>
+        </div>
+      </div>
+      <div class="comp-objective">
+        Fortalecer las habilidades directivas de los líderes de la Red para gestionar procesos de innovación, expansión y cambio con coherencia institucional, alineados al Sello UNE.
+      </div>
+      <div class="comp-body">
+        <div class="phases-label">Fases y entregables</div>
+        <div class="phases-list">
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>2.1 Diagnóstico</strong>
+              <span>3 semanas</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Evaluación de habilidades actuales del equipo directivo mediante instrumentos específicos de liderazgo para la innovación.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Informe de diagnóstico de liderazgo</span>
+                <span class="phase-del">Metas individuales por directivo</span>
+                <span class="phase-del">Diseño del programa personalizado</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>2.2 Implementación</strong>
+              <span>Continuo (12 meses)</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Módulos de formación directiva basados en las temáticas del Sello UNE: liderazgo institucional, gobernanza, gestión por indicadores e innovación aplicada.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Módulos de formación (híbridos)</span>
+                <span class="phase-del">Evaluaciones de avance por director</span>
+                <span class="phase-del">Dashboard de seguimiento</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>2.3 Transferencia</strong>
+              <span>Mes 12</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Documentación del programa como modelo replicable para nuevos directivos conforme la Red expanda planteles.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Guía del Programa de Liderazgo UNE</span>
+                <span class="phase-del">Plantillas de evaluación transferidas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="info-box">
+            <h5>Indicadores de éxito</h5>
+            <ul>
+              <li>Más del 80% de cobertura directiva en el primer año</li>
+              <li>Mejora del 15% en evaluaciones de liderazgo al cierre</li>
+              <li>Más del 90% de satisfacción con el programa</li>
+              <li>100% de directivos con metas individuales documentadas</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h5>Metodología + integración</h5>
+            <ul>
+              <li>Diagnóstico inicial del perfil de cada líder + programa personalizado</li>
+              <li>Modalidad híbrida: sesiones presenciales + autoaprendizaje asincrónico</li>
+              <li>Se integra con procesos de evaluación, contratación y expansión de planteles</li>
+              <li>Contenido sale del Sello UNE (componente 1)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ═══ COMPONENTE 3 ══════════════════════════════════ -->
+    <div class="comp-card">
+      <div class="comp-header yellow">
+        <div class="comp-num">03</div>
+        <div>
+          <h3>Programa de Formación Docente Base</h3>
+          <div class="comp-subtitle">Lo mínimo que todo docente de UNE debe saber · Meses 3–12</div>
+        </div>
+      </div>
+      <div class="comp-objective" style="background:#F8F8E0; color: #3A3A20;">
+        Homologar la experiencia académica y docente en toda la Red, asegurando que cualquier maestro —de primaria a universidad— comparta la misma base de identidad, fundamentos pedagógicos y temas vigentes del Sello UNE.
+      </div>
+      <div class="comp-body">
+        <div class="phases-label">Fases y entregables</div>
+        <div class="phases-list">
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>3.1 Diseño de la ruta</strong>
+              <span>4 semanas</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Co-diseño de las 3 líneas estratégicas de formación a partir del Sello UNE. Definición del formato y plataforma.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Mapa de 3 líneas formativas</span>
+                <span class="phase-del">Estructura de microaprendizaje</span>
+                <span class="phase-del">Diagnóstico de plataforma LMS</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>3.2 Primer trimestre</strong>
+              <span>Meses 4–6</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Lanzamiento del primer trimestre de formación docente en la plataforma de UNE. Los materiales quedan en manos de la institución.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Materiales del Trimestre 1 en LMS</span>
+                <span class="phase-del">Métricas de participación docente</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>3.3 Ruta de inducción</strong>
+              <span>Mes 4 en adelante</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Programa de 90 días para nuevos ingresos docentes. Maestro que entra, pasa por la formación base sin depender de INSITU.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Programa de inducción 90 días</span>
+                <span class="phase-del">Checklist de onboarding docente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="info-box">
+            <h5>Indicadores de éxito</h5>
+            <ul>
+              <li>Más del 95% de nuevos ingresos inducidos en los primeros 3 meses</li>
+              <li>Más del 80% de dominio de competencias del Sello UNE al completar formación</li>
+              <li>Mejora del 10% en percepción de clima de aula</li>
+              <li>Más del 85% de satisfacción docente con el programa</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h5>Metodología + integración</h5>
+            <ul>
+              <li>Microaprendizaje asincrónico (módulos de 15–20 min) adaptado a docentes por horas</li>
+              <li>Se monta en plataforma propia de UNE: el material queda para siempre</li>
+              <li>Se integra con planes de desarrollo, evaluación docente y procesos de contratación</li>
+              <li>A definir con UNE: plataforma disponible o adopción de nueva herramienta</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ═══ COMPONENTE 4 ══════════════════════════════════ -->
+    <div class="comp-card">
+      <div class="comp-header">
+        <div class="comp-num">04</div>
+        <div>
+          <h3>Red de Práctica y Mapeo Docente</h3>
+          <div class="comp-subtitle">Tablero de expertise + programa de incentivos · Semanas 8–12 y continuo</div>
+        </div>
+      </div>
+      <div class="comp-objective">
+        Identificar, formar y reconocer al talento docente de la Red para que sea la propia institución quien capacite a sus nuevos maestros, reduciendo progresivamente la dependencia de formación externa.
+      </div>
+      <div class="comp-body">
+        <div class="phases-label">Fases y entregables</div>
+        <div class="phases-list">
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>4.1 Diseño del modelo</strong>
+              <span>3 semanas</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Diseño del sistema de mapeo de competencias e incentivos. Definición de criterios para identificar formadores internos.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Modelo de mapeo de talento</span>
+                <span class="phase-del">Criterios de selección de formadores</span>
+                <span class="phase-del">Propuesta de modelo de incentivos</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>4.2 Mapeo y selección</strong>
+              <span>4 semanas</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Ejecución del proceso de mapeo en campo y selección de los primeros formadores internos.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Base de datos de talento docente (tablero inicial)</span>
+                <span class="phase-del">Listado de formadores seleccionados</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>4.3 Formación de formadores</strong>
+              <span>5 semanas</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Capacitación específica en metodologías de enseñanza para adultos, diseño instruccional y uso de herramientas pedagógicas.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Programa de Formación de Formadores</span>
+                <span class="phase-del">Materiales de capacitación</span>
+                <span class="phase-del">Certificación de formadores internos</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>4.4 Operación y gestión</strong>
+              <span>Continuo (seguimiento trimestral)</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Lanzamiento de la Red de Práctica, primeras experiencias de formación interna y establecimiento del sistema de gestión y seguimiento.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Sistema de gestión y seguimiento de la Red</span>
+                <span class="phase-del">Primeras formaciones internas ejecutadas</span>
+                <span class="phase-del">Informes de impacto de formación interna</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="info-box">
+            <h5>Indicadores de éxito</h5>
+            <ul>
+              <li>Más del 20% del talento mapeado en el primer semestre</li>
+              <li>Más del 10% de docentes seleccionados como formadores y certificados en año 1</li>
+              <li>Más del 50% de necesidades de capacitación cubiertas internamente en año 2</li>
+              <li>Reducción del 15% en costos de capacitación externa en año 2</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h5>Metodología + integración</h5>
+            <ul>
+              <li>Gestión del conocimiento + comunidades de práctica</li>
+              <li>Herramientas digitales para mapeo (tablero de datos accionable)</li>
+              <li>Formación basada en proyectos y trabajo colaborativo entre pares</li>
+              <li>Se integra con: evaluación de desempeño, inducción, programas de reconocimiento y Programa de Formación Docente (componente 3)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ═══ COMPONENTE 5 ══════════════════════════════════ -->
+    <div class="comp-card">
+      <div class="comp-header" style="background: #229999;">
+        <div class="comp-num">05</div>
+        <div>
+          <h3>Acompañamiento Estratégico</h3>
+          <div class="comp-subtitle">Seguimiento continuo de los 5 componentes · Todo el proyecto</div>
+        </div>
+      </div>
+      <div class="comp-objective">
+        Asegurar la correcta ejecución e implementación de todos los componentes del proyecto, brindando seguimiento continuo, asesoría estratégica y facilitando la apropiación del modelo por parte de la Red Educativa UNE.
+      </div>
+      <div class="comp-body">
+        <div class="phases-label">Fases y entregables</div>
+        <div class="phases-list">
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>5.1 Planificación</strong>
+              <span>Semana 1</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Definición de mecanismos de seguimiento, cadencia de reuniones y alineación de expectativas con los equipos de UNE.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Plan de Acompañamiento Estratégico</span>
+                <span class="phase-del">Calendario de reuniones de seguimiento</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>5.2 Seguimiento periódico</strong>
+              <span>Continuo (mensual/quincenal)</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Reuniones regulares con líderes de proyecto de UNE para revisar avances, identificar desafíos y ajustar el plan de trabajo.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Informes de seguimiento mensual/trimestral</span>
+                <span class="phase-del">Minutas con acuerdos y próximos pasos</span>
+                <span class="phase-del">Análisis y recomendaciones específicas</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>5.3 Evaluación y ajustes</strong>
+              <span>Trimestral</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Evaluación del progreso general, análisis de indicadores y ajustes estratégicos con la alta dirección de UNE.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Informe de evaluación de medio término</span>
+                <span class="phase-del">Plan de ajustes estratégicos</span>
+                <span class="phase-del">Sesiones de revisión con alta dirección</span>
+              </div>
+            </div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-label-col">
+              <strong>5.4 Cierre y transferencia</strong>
+              <span>2 semanas (mes 12)</span>
+            </div>
+            <div class="phase-content-col">
+              <p>Documentación de lecciones aprendidas, formalización de la transferencia y sesión de cierre oficial del acompañamiento.</p>
+              <div class="phase-deliverables">
+                <span class="phase-del">Informe final del proyecto</span>
+                <span class="phase-del">Documento de buenas prácticas</span>
+                <span class="phase-del">Sesión de cierre y transferencia formal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="info-box">
+            <h5>Indicadores de éxito</h5>
+            <ul>
+              <li>Más del 90% de actividades planificadas ejecutadas en tiempo y forma</li>
+              <li>Más del 80% de desafíos resueltos en máximo 2 semanas</li>
+              <li>Más del 90% de líderes califican el acompañamiento como "muy útil" o "esencial"</li>
+              <li>Más del 75% de equipos de UNE con autonomía al finalizar el acompañamiento</li>
+            </ul>
+          </div>
+          <div class="info-box">
+            <h5>Metodología + integración</h5>
+            <ul>
+              <li>Enfoque ágil y proactivo con identificación temprana de riesgos</li>
+              <li>Herramientas de gestión de proyectos para seguimiento de tareas y entregables</li>
+              <li>Comunicación constante entre INSITU y equipos UNE</li>
+              <li>Se integra con reuniones de alta dirección, sistemas de gestión internos y procesos de toma de decisiones estratégicas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /components-grid -->
+</div>
+<div class="rule"></div>
+
+<!-- ═══ RESULTADOS ════════════════════════════════════ -->
+<div class="section">
+  <div class="eyebrow">Al cierre del primer ciclo anual</div>
+  <div class="section-title">Resultados esperados del proyecto</div>
+  <p class="section-lead">Síntesis del impacto cualitativo y cuantitativo en respuesta directa a la solicitud de aterrizar alcances y resultados.</p>
+
+  <div class="results-grid">
+    <div class="result-card teal">
+      <h5>Resultados cualitativos</h5>
+      <ul>
+        <li>Identidad institucional unificada — el "Sello UNE" — como marco rector para contratación, formación y comunicación</li>
+        <li>Equipo directivo profesionalizado con metas individuales en seguimiento y modelo replicable para nuevos líderes</li>
+        <li>Experiencia docente homologada en toda la Red: de primaria a universidad</li>
+        <li>Capacidad instalada de formación interna: la institución identifica, forma y reconoce su propio talento</li>
+        <li>Autonomía institucional al cierre: los equipos de UNE gestionan los programas con metodologías y herramientas transferidas por INSITU</li>
+      </ul>
+    </div>
+    <div class="result-card">
+      <h5>Síntesis de indicadores por componente</h5>
+      <ul>
+        <li><strong>Sello UNE:</strong> documento aprobado formalmente; +90% asistencia directiva; +85% claridad reportada</li>
+        <li><strong>Liderazgo Directivo:</strong> +80% cobertura directiva año 1; +15% en evaluaciones de liderazgo; +90% satisfacción</li>
+        <li><strong>Formación Docente:</strong> +95% de nuevos ingresos inducidos en 3 meses; +80% dominio competencias del Sello; +10% clima de aula</li>
+        <li><strong>Talento Interno:</strong> +20% talento mapeado en 1er semestre; +50% capacitación cubierta internamente en año 2; 15% ahorro en formación externa</li>
+        <li><strong>Acompañamiento:</strong> +90% cumplimiento del plan; +75% autonomía institucional al cierre</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="rule"></div>
+
+<!-- ═══ CONSIDERACIONES FINALES ══════════════════════ -->
+<div class="section">
+  <div class="eyebrow">Próximo paso</div>
+  <div class="section-title">Consideraciones finales</div>
+  <p class="section-lead" style="max-width:100%;">
+    Esta propuesta complementaria busca sentar las bases para una colaboración transparente y efectiva, asegurando que la inversión de la Red Educativa UNE se traduzca en resultados medibles y sostenibles, con logros visibles desde las primeras seis semanas de trabajo. Los detalles aquí presentados servirán como punto de partida para la propuesta económica, que se ajustará a las necesidades específicas y al alcance final acordado.
+  </p>
+  <p class="section-lead" style="max-width:100%; margin-top: 12px;">
+    Se propone una reunión de seguimiento para afinar los indicadores según las prioridades de UNE y cualquier detalle antes de proceder con la propuesta económica formal.
+  </p>
+</div>
+
+</div><!-- /body-wrap -->
+
+<!-- ═══ FOOTER ════════════════════════════════════════ -->
+<div class="footer">
+  <div>
+    <div class="footer-logo"><img src="data:image/png;base64,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" alt=":Insitu" style="height:32px; filter: brightness(0) invert(1);"></div>
+    <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:4px;">Education + Social Lab</div>
+  </div>
+  <div class="footer-contact">
+    <strong>insitu@insitueducationlab.com</strong><br>
+    www.insitueducationlab.com
+  </div>
+</div>
+
+</body>
+</html>
